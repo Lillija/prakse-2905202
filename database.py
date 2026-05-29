@@ -3,7 +3,11 @@ import sqlite3
 conn = sqlite3.connect("baltic_esports.db")
 cursor = conn.cursor()
 
-cursor.execute("PRAGMA table_info(teams)")
-print(cursor.fetchall())
+for team in teams:
+    cursor.execute("""
+        INSERT INTO teams (name, country, game)
+        VALUES (?, ?, ?)
+    """, (team["title"], "unknown", "esports"))
 
+conn.commit()
 conn.close()
