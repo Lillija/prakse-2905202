@@ -1,18 +1,19 @@
-# import sqlite3
+import sqlite3
 
-# conn = sqlite3.connect("baltic_esports.db")
-# cursor = conn.cursor()
+conn = sqlite3.connect("baltic_esports.db")
+cursor = conn.cursor()
 
-# teams = [
-#     ("Riga Wolves", "Latvia", "CS2", 1),
-#     ("Tallinn Titans", "Estonia", "Valorant", 2),
-#     ("Vilnius Phantoms", "Lithuania", "LoL", 3)
-# ]
+teams = [
+    ("Riga Wolves", "LV", "CS2", "2020", "Owner A", "RedBull", ""),
+    ("Tallinn Titans", "EE", "Valorant", "2019", "Owner B", "Intel", "")
+]
 
-# cursor.executemany(
-#     "INSERT INTO teams (name, country, game, ranking) VALUES (?, ?, ?, ?)",
-#     teams
-# )
+cursor.executemany("""
+INSERT INTO teams (name, country, game, founding_date, owner, sponsors, logo_url)
+VALUES (?, ?, ?, ?, ?, ?, ?)
+""", teams)
 
-# conn.commit()
-# conn.close()
+conn.commit()
+conn.close()
+
+print("Mock data inserted")
