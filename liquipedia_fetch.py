@@ -10,10 +10,24 @@ params = {
     "cmlimit": 10
 }
 
-response = requests.get(URL, params=params)
-data = response.json()
+headers = {
+    "User-Agent": "BalticEsportsMarket/1.0"
+}
 
-teams = data["query"]["categorymembers"]
+response = requests.get(
+    URL,
+    params=params,
+    headers=headers
+)
 
-for team in teams:
-    print(team["title"])
+print("Final URL:")
+print(response.url)
+
+print("\nStatus:")
+print(response.status_code)
+
+print("\nContent-Type:")
+print(response.headers.get("Content-Type"))
+
+print("\nFirst 300 chars:")
+print(response.text[:300])
