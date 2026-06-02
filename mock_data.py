@@ -3,7 +3,6 @@ import sqlite3
 conn = sqlite3.connect("baltic_esports.db")
 cursor = conn.cursor()
 
-# Teams
 teams = [
     ("Riga Wolves", "LV", "CS2", "2020", "Owner A", "RedBull", ""),
     ("Tallinn Titans", "EE", "Valorant", "2019", "Owner B", "Intel", ""),
@@ -16,7 +15,6 @@ INSERT INTO teams
 VALUES (?, ?, ?, ?, ?, ?, ?)
 """, teams)
 
-# Players
 players = [
     ("broky", "Helvijs Saukants", "LV", "CS2", 1, 1200000, "Epsilon"),
     ("YEKINDAR", "Mareks Gaļinskis", "LV", "CS2", 1, 900000, "Virtus.pro"),
@@ -29,7 +27,6 @@ INSERT INTO players
 VALUES (?, ?, ?, ?, ?, ?, ?)
 """, players)
 
-# Tournaments
 tournaments = [
     ("Baltic Masters", "2026", "CS2", 10000, "BEA", "Completed"),
     ("Baltic Valorant Cup", "2026", "Valorant", 5000, "BEA", "Upcoming")
@@ -41,7 +38,6 @@ INSERT INTO tournaments
 VALUES (?, ?, ?, ?, ?, ?)
 """, tournaments)
 
-# Placements
 placements = [
     (1, 1, "1st", 5000),
     (1, 2, "2nd", 3000)
