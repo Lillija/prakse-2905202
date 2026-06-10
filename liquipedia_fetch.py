@@ -1,33 +1,22 @@
-import requests
+import sqlite3
 
-URL = "https://liquipedia.net/api.php"
+# Temporary sample data until API integration works
+teams = [
+    ("NAVI Junior", "EE", "CS2"),
+    ("Baltic Wolves", "LV", "CS2"),
+    ("Vilnius Esports", "LT", "Valorant")
+]
 
-params = {
-    "action": "query",
-    "format": "json",
-    "list": "categorymembers",
-    "cmtitle": "Category:Teams",
-    "cmlimit": 10
-}
+conn = sqlite3.connect("baltic_esports.db")
+cursor = conn.cursor()
 
-headers = {
-    "User-Agent": "BalticEsportsMarket/1.0"
-}
+for team in teams:
+    cursor.execute("""
+        INSERT INTO teams (name, country, game)
+        VALUES (?, ?, ?)
+    """, team)
 
-response = requests.get(
-    URL,
-    params=params,
-    headers=headers
-)
+conn.commit()
+conn.close()
 
-print("Final URL:")
-print(response.url)
-
-print("\nStatus:")
-print(response.status_code)
-
-print("\nContent-Type:")
-print(response.headers.get("Content-Type"))
-
-print("\nFirst 300 chars:")
-print(response.text[:300])
+print("Teams imported successfully.")
