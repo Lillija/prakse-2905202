@@ -8,8 +8,6 @@ The project uses an SQLite database for storing information about Baltic esports
 
 ### teams
 
-Stores information about esports organizations and teams.
-
 | Field         | Type    | Description          |
 | ------------- | ------- | -------------------- |
 | id            | INTEGER | Primary Key          |
@@ -22,8 +20,6 @@ Stores information about esports organizations and teams.
 | logo_url      | TEXT    | Logo URL             |
 
 ### players
-
-Stores information about esports players.
 
 | Field          | Type    | Description      |
 | -------------- | ------- | ---------------- |
@@ -38,8 +34,6 @@ Stores information about esports players.
 
 ### tournaments
 
-Stores tournament information.
-
 | Field      | Type    | Description       |
 | ---------- | ------- | ----------------- |
 | id         | INTEGER | Primary Key       |
@@ -51,8 +45,6 @@ Stores tournament information.
 | status     | TEXT    | Tournament status |
 
 ### tournament_placements
-
-Stores tournament results.
 
 | Field          | Type    | Description          |
 | -------------- | ------- | -------------------- |

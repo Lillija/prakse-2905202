@@ -1,6 +1,5 @@
 import sqlite3
 
-# Temporary sample data until API integration works
 teams = [
     ("NAVI Junior", "EE", "CS2"),
     ("Baltic Wolves", "LV", "CS2"),
